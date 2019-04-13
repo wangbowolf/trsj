@@ -106,7 +106,7 @@
 		</dependency>
 	</dependencies>
 
-	<build>
+	<!--<build>
 	<plugins>
 	<plugin>
 		<groupId>org.mybatis.generator</groupId>
@@ -122,14 +122,14 @@
 			</execution>
 		</executions>
 		<configuration>
-			<!-- generator 工具配置文件的位置 -->
+			&lt;!&ndash; generator 工具配置文件的位置 &ndash;&gt;
 			<configurationFile>src/main/resources/generator/generatorConfig.xml</configurationFile>
-			<!--允许移动生成的文件 -->
+			&lt;!&ndash;允许移动生成的文件 &ndash;&gt;
 			<verbose>true</verbose>
-			<!-- 是否覆盖 -->
+			&lt;!&ndash; 是否覆盖 &ndash;&gt;
 			<overwrite>true</overwrite>
 		</configuration>
 	</plugin>
 	</plugins>
-	</build>
+	</build>-->
 </project>

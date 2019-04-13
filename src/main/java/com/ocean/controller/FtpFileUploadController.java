@@ -21,7 +21,6 @@ public class FtpFileUploadController {
 
     //ftp处理文件上传
     @PostMapping("/upload")
-    @PassToken
     @ResponseBody
     public String uploadImg(@RequestParam("file") MultipartFile file,
                                           HttpServletRequest request) throws IOException {
