@@ -1,0 +1,28 @@
+server:
+  port: 8088
+  context-path: /trsj
+  tomcat:
+    uri-encoding: utf-8
+
+spring:
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        #正式库:
+        url: jdbc:mysql://39.104.114.77:3306/tangren?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: root
+        password: root
+
+aliyun:
+  sms:
+    accessKeyId: LTAIeqJQy3lgjeTA
+    accessKeySecret: 653etQc0eUF2x62cfZuvLprZiz1njF
+    product: Dysmsapi
+    domain: dysmsapi.aliyuncs.com
+    regionId: cn-hangzhou
+    signName: 唐人世界NPC
+    dateFormat: yyyyMMdd
+    endpointName: cn-hangzhou
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.ocean.pojo
