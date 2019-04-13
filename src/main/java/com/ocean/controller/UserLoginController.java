@@ -37,7 +37,8 @@ public class UserLoginController {
     @GetMapping("/sms")
     @PassToken
     public ResponseBo smsAuto(@RequestParam String phone, HttpServletRequest httpServletRequest){
-        SimpleSMSSender.SMS sms = SimpleSMSSender.newSMS();
+        //测试先不去请求阿里云, 直接用123456代替
+        /*SimpleSMSSender.SMS sms = SimpleSMSSender.newSMS();
         sms.setPhoneNumbers(phone);
         String randoms = GetRandoms.getRandoms();
         sms.setTemplateParam("{\"code\":\""+randoms+"\"}");
@@ -47,7 +48,9 @@ public class UserLoginController {
             httpServletRequest.getSession().setAttribute(phone, randoms);
             return ResponseBo.ok();
         }
-        return ResponseBo.error();
+        return ResponseBo.error();*/
+        httpServletRequest.getSession().setAttribute(phone, "123456");
+        return ResponseBo.ok();
     }
 
     //登陆or注册
