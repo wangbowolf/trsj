@@ -106,7 +106,7 @@
 		</dependency>
 	</dependencies>
 
-	<!--<build>
+	<build>
 	<plugins>
 	<plugin>
 		<groupId>org.mybatis.generator</groupId>
@@ -122,14 +122,22 @@
 			</execution>
 		</executions>
 		<configuration>
-			&lt;!&ndash; generator 工具配置文件的位置 &ndash;&gt;
 			<configurationFile>src/main/resources/generator/generatorConfig.xml</configurationFile>
-			&lt;!&ndash;允许移动生成的文件 &ndash;&gt;
 			<verbose>true</verbose>
-			&lt;!&ndash; 是否覆盖 &ndash;&gt;
 			<overwrite>true</overwrite>
 		</configuration>
+		<dependencies>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.6</version>
+			</dependency>
+		</dependencies>
 	</plugin>
+		<plugin>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+		</plugin>
 	</plugins>
-	</build>-->
+	</build>
 </project>
