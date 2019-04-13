@@ -45,7 +45,7 @@ public class ActiveController {
         return ResponseBo.fail();
     }
 
-    //活动查询(全部)
+    //活动查询(全部带分页)
     @GetMapping("actives")
     public JSONObject listActivesBySerch(@RequestParam(required = false) int currentPage,
                                          @RequestParam(required = false) int pageSize,
