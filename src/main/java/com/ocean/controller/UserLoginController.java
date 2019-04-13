@@ -62,8 +62,7 @@ public class UserLoginController {
             String token = GetToken.getToken(user);
             return ResponseBo.success()
                       .put("token", token)
-                      .put("user", user)
-                      .put("message", "操作成功");
+                      .put("user", user);
         }
         return ResponseBo.error("验证码不正确,请重新登陆");
     }
