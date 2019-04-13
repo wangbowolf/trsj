@@ -10,4 +10,5 @@ public interface UserService {
     User getUser(String phone);
 
     void addUserInPhone(String phone);
+
 }

@@ -1,9 +1,11 @@
 package com.ocean.controller;
 
+import com.ocean.annotation.PassToken;
 import com.ocean.pojo.ResponseBo;
 import com.ocean.pojo.User;
 import com.ocean.service.UserService;
 import com.ocean.util.GetRandoms;
+import com.ocean.util.GetToken;
 import com.ocean.util.SimpleSMSSender;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,6 +35,7 @@ public class UserLoginController {
 
     //发送验证码
     @GetMapping("/sms")
+    @PassToken
     public ResponseBo smsAuto(@RequestParam String phone, HttpServletRequest httpServletRequest){
         SimpleSMSSender.SMS sms = SimpleSMSSender.newSMS();
         sms.setPhoneNumbers(phone);
@@ -49,13 +52,18 @@ public class UserLoginController {
 
     //登陆or注册
     @PostMapping("/login")
+    @PassToken
     public ResponseBo login(@RequestBody User user, HttpSession httpSession){
         String attribute = (String) httpSession.getAttribute(user.getPhone());
         if(null != attribute && attribute.equalsIgnoreCase(user.getCode())){
             if(null == userService.getUser(user.getPhone())){
                 userService.addUserInPhone(user.getPhone());
             }
-            return ResponseBo.ok("登陆成功!");
+            String token = GetToken.getToken(user);
+            return ResponseBo.success()
+                      .put("token", token)
+                      .put("user", user)
+                      .put("message", "操作成功");
         }
         return ResponseBo.error("验证码不正确,请重新登陆");
     }
